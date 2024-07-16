@@ -1,0 +1,25 @@
+{
+    "name": "video-streaming",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "start": "node main.js"
+    },
+    "devDependencies": {
+        "@ffmpeg-installer/ffmpeg": "^1.1.0",
+        "@jibb-open/jssdk": "^3.17.2",
+        "commander": "^11.1.0",
+        "ffmpeg": "^0.0.4",
+        "fluent-ffmpeg": "^2.1.2",
+        "fs": "^0.0.1-security",
+        "path": "^0.12.7",
+        "yargs": "^17.7.2"
+    },
+    "keywords": [],
+    "author": "JIBB",
+    "license": "MIT",
+    "dependencies": {
+        "core-js": "^3.37.1"
+    }
+}
