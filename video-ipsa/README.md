@@ -1,53 +1,68 @@
 # Video Streaming
 
-This project provides a video streaming service that processes video files and streams frames using the JIBB API.
+A Node.js application for capturing frames from a video at regular intervals and processing them.
+
+## Description
+
+This project captures frames from a video file every 500 milliseconds, converts them to base64, and sends them to IPSA for AI processing. The application also sets up and manages a JIBB meeting session.
 
 ## Prerequisites
 
-- Node.js
-- npm
+- Node.js (v14 or higher recommended)
+- `ffmpeg` installed on your system and accessible in your PATH
 
 ## Installation
 
 1. Clone the repository:
-    ```sh
-        git clone https://github.com/jibb-open/scripts.git
+
+    ```bash
+    git clone https://github.com/jibb-open/scripts.git
     ```
+
 2. Navigate to the project directory:
-    ```sh
+
+    ```bash
     cd video-ipsa
     ```
+
 3. Install the dependencies:
-    ```sh
+
+    ```bash
     npm install
     ```
 
 ## Usage
 
-To start the video streaming service, run the following command:
+### Using npm start
 
-```sh
+Run the application with the required arguments:
+
+```bash
 npm start -- -v <path_to_video_file> -k <your_api_key>
 ```
-Replace <path_to_video_file> with the path to the video file you want to process, and <your_api_key> with your API key.
-Example : 
-```sh
+Example:
+```bash
 npm start -- -v video.mp4 -k your_api_key_here
 ```
 
 ## Output
 Once the service starts, it will process the video and output the frames. You can access the processed output by visiting the URL provided in the console log:
-```sh
+```bash
 *****URL*****
 https://app.jibb.ai/workspace/<meeting_id>?user_token=<user_token>
-**********
+*************
 ```
 
-## Cleanup
-The service will automatically clean up resources and exit gracefully when you press Ctrl+C.
+## Features
+- Capture frames from a video at 500ms intervals
+- Convert frames to base64
+- Send frames to IPSA for AI processing
+- Manage JIBB meeting sessions
 
+## Error Handling
+The application handles errors related to video processing and IPSA communication.
+Graceful shutdown is implemented to clean up resources on receiving SIGINT (Ctrl+C).
 
-## Author
+## License
 JIBB
-
 
