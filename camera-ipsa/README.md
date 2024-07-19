@@ -64,10 +64,10 @@ https://app.jibb.ai/workspace/<meeting_id>?user_token=<user_token>
 
 
 ## Technologies Used
-node-webcam: For capturing frames from the webcam
-inquirer: For prompting user input
-yargs: For command-line argument parsing
-@jibb-open/jssdk: For interacting with JIBB services
+- node-webcam: For capturing frames from the webcam
+- inquirer: For prompting user input
+- yargs: For command-line argument parsing
+- @jibb-open/jssdk: For interacting with JIBB services
 
 
 ## Error Handling
