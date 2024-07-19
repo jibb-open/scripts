@@ -1,19 +1,18 @@
 {
-    "name": "video-streaming",
+    "name": "camera-streaming",
     "version": "1.0.0",
-    "description": "A Node.js application for video frame capture and processing",
+    "description": "A Node.js application for capturing frames from a webcam and processing them",
     "main": "index.js",
     "scripts": {
         "start": "node index.js"
     },
     "dependencies": {
         "@jibb-open/jssdk": "^3.17.2",
-        "base64-img": "^1.0.4",
         "core-js": "^3.37.1",
-        "fluent-ffmpeg": "^2.1.3",
+        "inquirer": "^8.2.6",
+        "node-webcam": "^0.6.4",
         "yargs": "^17.7.2"
     },
-    "devDependencies": {},
     "keywords": [],
     "author": "JIBB",
     "license": "MIT"
