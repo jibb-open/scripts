@@ -52,6 +52,8 @@ Once the service starts, it will process the video and output the frames. You ca
 https://app.jibb.ai/workspace/<meeting_id>?user_token=<user_token>
 *************
 ```
+## Configuration
+The script uses `ffmpeg-static` and `ffprobe-static` to handle video processing. These packages ensure that the correct ffmpeg and ffprobe executables are used without needing to manually install them on your system.
 
 ## Features
 - Capture frames from a video at 500ms intervals
@@ -60,6 +62,11 @@ https://app.jibb.ai/workspace/<meeting_id>?user_token=<user_token>
 - Manage JIBB meeting sessions
 
 ## Error Handling
+If you encounter any issues, make sure:
+
+All dependencies are installed correctly by running npm install.
+The `ffmpeg-static` and `ffprobe-static` packages are installed and configured properly.
+
 The application handles errors related to video processing and IPSA communication.
 Graceful shutdown is implemented to clean up resources on receiving SIGINT (Ctrl+C).
 
