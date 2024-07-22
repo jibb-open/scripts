@@ -8,9 +8,9 @@
     },
     "dependencies": {
         "@jibb-open/jssdk": "^3.17.2",
+        "camera-capture": "^0.0.11",
         "core-js": "^3.37.1",
-        "inquirer": "^8.2.6",
-        "node-webcam": "^0.6.4",
+        "jpeg-js": "^0.4.4",
         "yargs": "^17.7.2"
     },
     "keywords": [],
