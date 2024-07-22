@@ -145,7 +145,9 @@ async function start(meetingId, meetingToken, userToken, device) {
     }
 
     // Initialize webcam once
-    const webcam = NodeWebcam.create(getWebcamOptions(device));
+    const webcamOptions = getWebcamOptions(device);
+    console.log('Webcam options:', webcamOptions);
+    const webcam = NodeWebcam.create(webcamOptions);
     console.log('Webcam initialized:', webcam);
 
     // Start capturing frames from webcam
