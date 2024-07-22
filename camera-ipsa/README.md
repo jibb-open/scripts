@@ -1,6 +1,6 @@
-# Camera IPSA
+# Camera Capture Script
 
-A Node.js application for capturing frames from a webcam at regular intervals and processing them with JIBB's AI.
+This script allows you to capture frames from your webcam and send them to IPSA for AI processing. The frames are captured at intervals of 1 second.
 
 ## Description
 
@@ -8,33 +8,34 @@ This project captures frames from a webcam every 500 milliseconds, converts them
 
 ## Prerequisites
 
-- Node.js (v14 or higher recommended)
+Before running the script, ensure you have the following installed:
+
+- Node.js (version 12.x or higher)
+- npm (Node Package Manager)
+- Webcam drivers (for Windows)
+- `camera-capture` library
+- `inquirer` library
+- `jpeg-js` library
+- API key for JIBB
 
 ## Installation
 
-1. Clone the repository:
-
-    ```bash
-    git clone https://github.com/jibb-open/scripts.git
-    ```
-
-2. Navigate to the project directory:
-
-    ```bash
-    cd camera-ipsa
-    ```
-
-3. Install the dependencies:
+1. Clone the repository or download the script.
+2. Navigate to the project directory.
+3. Install the required dependencies:
 
     ```bash
     npm install
     ```
 
+4. Ensure your camera is pointed at the whiteboard before running the script.
+
 ## Usage
 
 ### Using npm start
 
-Run the application with the required arguments:
+1. Open a terminal and navigate to the project directory.
+2. Run the script with your API key:
 
 ```bash
 npm start -- -k <your_api_key>
@@ -56,18 +57,33 @@ https://app.jibb.ai/workspace/<meeting_id>?user_token=<user_token>
 *************
 ```
 
-## Features
-- Capture frames from a webcam at 500ms intervals
-- Convert frames to base64
-- Send frames to IPSA for AI processing
-- Manage JIBB meeting sessions
+## Important Notes
 
+- Make sure your webcam is properly connected and accessible.
+- Ensure that your camera is pointed at the whiteboard before starting the script to capture the correct frames.
+- If you encounter any issues with frame capturing, check the console for error messages and ensure all dependencies are installed correctly.
 
-## Technologies Used
-- node-webcam: For capturing frames from the webcam
-- inquirer: For prompting user input
-- yargs: For command-line argument parsing
-- @jibb-open/jssdk: For interacting with JIBB services
+## Script Overview
+
+### Dependencies
+The script uses the following libraries:
+- `camera-capture`: To capture frames from the webcam.
+- `inquirer`: To prompt the user to select a camera (if required).
+- `jpeg-js`: To encode ImageData to JPEG format.
+- `@jibb-open/jssdk`: To interact with the JIBB API.
+
+### Functions
+- `configure(apikey)`: Configures the API key.
+- `getToken()`: Retrieves the user token.
+- `createMeeting(title)`: Creates a meeting with the given title.
+- `getMeetingToken(meetingId)`: Retrieves the meeting token.
+- `onErrorMeeting(err)`: Handles meeting connection errors.
+- `onErrorIpsa(err)`: Handles IPSA errors.
+- `cleanUp()`: Stops MeetingConnection and IPSA.
+- `imageDataToBase64(imageData)`: Converts ImageData to base64-encoded JPEG.
+- `captureFrames()`: Captures frames from the selected camera.
+- `start(meetingId, meetingToken, userToken)`: Starts the meeting and IPSA processing.
+- `main()`: Main function to parse arguments and start the process.
 
 
 ## Error Handling
