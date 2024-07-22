@@ -72,7 +72,12 @@ const getWebcamOptions = (device) => ({
     callbackReturn: "buffer",
     driver: getDriver(), // Set the appropriate driver based on OS
     output: "jpeg", // Ensure a common output format
-    saveShots: false // Do not save shots to disk
+    saveShots: false, // Do not save shots to disk
+    width: 1280, // Set the width of the video capture
+    height: 720, // Set the height of the video capture
+    quality: 100, // Set the quality of the video capture
+    delay: 0, // Set the delay to 0 to avoid the camera turning off
+    verbose: true // Enable verbose output for debugging
 });
 
 // Function to capture frames from webcam
@@ -93,6 +98,7 @@ const captureFrames = (webcam) => {
                 // Sending Images to IPSA for AI processing
                 IPSA.writeData(base64Data)
                     .then(() => {
+                        console.log('Frame captured and sent to IPSA.');
                         // Schedule the next frame capture
                         setTimeout(captureFrame, interval);
                     })
