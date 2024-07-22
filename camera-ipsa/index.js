@@ -19,12 +19,14 @@ async function getToken() {
 
 // Function to create a meeting
 async function createMeeting(title) {
-    return await Meeting.create({ title: title, isTemporary: true });
+    // Assuming Meeting has a createMeeting method
+    return await Meeting.createMeeting({ title: title, isTemporary: true });
 }
 
 // Function to get meeting token
 async function getMeetingToken(meetingId) {
-    return await Meeting.getToken({ meetingId: meetingId, permission: 31 });
+    // Assuming Meeting has a getMeetingToken method
+    return await Meeting.getMeetingToken({ meetingId: meetingId, permission: 31 });
 }
 
 // Error handler for meeting connection errors
@@ -131,7 +133,7 @@ async function start(meetingId, meetingToken, userToken, device) {
     };
 
     // Start meeting
-    await Meeting.start({ meetingId, meetingToken });
+    await Meeting.startMeeting({ meetingId, meetingToken });
 
     // Add event listeners
     MeetingConnection.addEventListener({ onError: onErrorMeeting });
