@@ -2,9 +2,9 @@ const NodeWebcam = require('node-webcam');
 const inquirer = require('inquirer');
 const os = require('os');
 const { Config } = require('@jibb-open/jssdk/config.js');
-const { IPSA, MeetingConnection } = require('@jibb-open/jssdk/ws');
-const { Auth, Meeting } = require('@jibb-open/jssdk/api');
-const { types } = require('@jibb-open/jssdk/types/proto');
+const { IPSA, MeetingConnection } = '@jibb-open/jssdk/ws';
+const { Auth, Meeting } = '@jibb-open/jssdk/api';
+const { types } = '@jibb-open/jssdk/types/proto';
 const yargs = require('yargs');
 
 // Function to configure API key
