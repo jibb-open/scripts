@@ -70,12 +70,12 @@ const getDriver = () => {
 const getWebcamOptions = (device) => ({
     device: device || false,
     callbackReturn: "buffer",
-    driver: getDriver() // Set the appropriate driver based on OS
+    driver: getDriver(), // Set the appropriate driver based on OS
+    output: "jpeg" // Ensure a common output format
 });
 
 // Function to capture frames from webcam
-const captureFrames = (webcamOptions) => {
-    const webcam = NodeWebcam.create(webcamOptions);
+const captureFrames = (webcam) => {
     const interval = 500; // Capture frame every 500 milliseconds
 
     const captureFrame = () => {
@@ -136,8 +136,11 @@ async function start(meetingId, meetingToken, userToken, device) {
         console.error('An error occurred:', error);
     }
 
+    // Initialize webcam once
+    const webcam = NodeWebcam.create(getWebcamOptions(device));
+
     // Start capturing frames from webcam
-    captureFrames(getWebcamOptions(device));
+    captureFrames(webcam);
 }
 
 // Main function to parse arguments and start the process
