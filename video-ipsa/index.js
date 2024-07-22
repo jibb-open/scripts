@@ -1,10 +1,16 @@
 const ffmpeg = require('fluent-ffmpeg');
+const ffmpegPath = require('ffmpeg-static');
+const ffprobePath = require('ffprobe-static').path; // Ensure ffprobe-static is installed
 const { PassThrough } = require('stream');
 const { Config } = require('@jibb-open/jssdk/config.js');
 const { IPSA, MeetingConnection } = require('@jibb-open/jssdk/ws');
 const { Auth, Meeting } = require('@jibb-open/jssdk/api');
 const { types } = require('@jibb-open/jssdk/types/proto');
 const yargs = require('yargs');
+
+// Explicitly set paths for ffmpeg and ffprobe
+ffmpeg.setFfmpegPath(ffmpegPath);
+ffmpeg.setFfprobePath(ffprobePath);
 
 // Function to configure API key
 async function configure(apikey) {
