@@ -56,6 +56,8 @@ Once the service starts, it will process the video and output the frames. You ca
 https://app.jibb.ai/workspace/<meeting_id>?user_token=<user_token>
 *************
 ```
+"If there is no output, make sure the camera is pointed at a whiteboard with writing on it"
+
 
 ## Important Notes
 
