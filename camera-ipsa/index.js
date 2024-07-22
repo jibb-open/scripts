@@ -2,9 +2,9 @@ const NodeWebcam = require('node-webcam');
 const inquirer = require('inquirer');
 const os = require('os');
 const { Config } = require('@jibb-open/jssdk/config.js');
-const { IPSA, MeetingConnection } = '@jibb-open/jssdk/ws';
-const { Auth, Meeting } = '@jibb-open/jssdk/api';
-const { types } = '@jibb-open/jssdk/types/proto';
+const { IPSA, MeetingConnection } = require('@jibb-open/jssdk/ws');
+const { Auth, Meeting } = require('@jibb-open/jssdk/api');
+const { types } = require('@jibb-open/jssdk/types/proto');
 const yargs = require('yargs');
 
 // Function to configure API key
@@ -19,12 +19,12 @@ async function getToken() {
 
 // Function to create a meeting
 async function createMeeting(title) {
-    return await Meeting.createMeeting({ title: title, isTemporary: true });
+    return await Meeting.create({ title: title, isTemporary: true });
 }
 
 // Function to get meeting token
 async function getMeetingToken(meetingId) {
-    return await Meeting.getMeetingToken({ meetingId: meetingId, permission: 31 });
+    return await Meeting.getToken({ meetingId: meetingId, permission: 31 });
 }
 
 // Error handler for meeting connection errors
@@ -131,7 +131,7 @@ async function start(meetingId, meetingToken, userToken, device) {
     };
 
     // Start meeting
-    await Meeting.startMeeting({ meetingId, meetingToken });
+    await Meeting.start({ meetingId, meetingToken });
 
     // Add event listeners
     MeetingConnection.addEventListener({ onError: onErrorMeeting });
